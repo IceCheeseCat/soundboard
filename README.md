@@ -1,12 +1,12 @@
 # Soundboard
 
-A Windows and Linux X11 desktop soundboard built with Python. It stays in the
+A Windows and Linux desktop soundboard built with Python. It stays in the
 system tray, copies imported audio into its own library, and plays sounds from
 customizable global shortcuts.
 
 ## Features
 
-- Global one-, two-, or three-key shortcuts
+- Global one-, two-, or three-key shortcuts on Windows and Linux X11
 - WAV, MP3, and OGG imports with managed copies
 - Editable unique tags backed by immutable sound IDs
 - Overlapping playback for rapid sound effects
@@ -14,9 +14,7 @@ customizable global shortcuts.
 - Atomic `sounds.json` and `keybinds.json` persistence
 - System-tray Show and Quit actions
 
-Linux Wayland blocks arbitrary global keyboard listeners. The GUI, sound
-library, preview playback, and shortcut editing remain available, but background
-shortcuts require an X11 session.
+Linux global shortcuts require an X11 session.
 
 ## Install and run
 
@@ -67,9 +65,9 @@ by `platformdirs`.
 ## Controls
 
 1. Add or select a sound in **Sound library**.
-2. Open **Keybindings**, select the sound, and click **Listen**.
-3. Press up to three keys and release any one key to save the chord.
-4. Close the main window to keep the application running in the system tray.
+2. On Windows or Linux X11, open **Keybindings**, select the sound, and click
+   **Listen**. Press up to three keys and release any one key to save the chord.
+3. Close the main window to keep the application running in the system tray.
 
 Pure modifier shortcuts such as `Ctrl+Shift` are rejected. Left and right
 modifier keys normalize to the same stored shortcut. A held chord plays once
@@ -88,4 +86,4 @@ QT_QPA_PLATFORM=offscreen python -m pytest
 ```
 
 Global listeners and actual audio devices still require manual validation on
-Windows and Linux X11.
+their target desktops.
